@@ -1,0 +1,14 @@
+run -all
+# Simulasyon Basladi...
+# Zaman=0 | Reset=1 | TAORB=1 | LED(LA_LB)=001100
+# Zaman=25000 | Reset=0 | TAORB=1 | LED(LA_LB)=001100
+# Zaman=65000 | Reset=0 | TAORB=0 | LED(LA_LB)=001100
+# Zaman=70000 | Reset=0 | TAORB=0 | LED(LA_LB)=010100
+# Zaman=170000 | Reset=0 | TAORB=0 | LED(LA_LB)=100001
+# Zaman=255000 | Reset=0 | TAORB=1 | LED(LA_LB)=100001
+# Zaman=270000 | Reset=0 | TAORB=1 | LED(LA_LB)=100010
+# Zaman=370000 | Reset=0 | TAORB=1 | LED(LA_LB)=001100
+# Simulasyon Basariyla Tamamlandi.
+# ** Note: $stop    : traffic_tb.sv(43)
+#    Time: 405 ns  Iteration: 0  Instance: /traffic_tb
+# Break in Module traffic_tb at traffic_tb.sv line 43
