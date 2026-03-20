@@ -7,7 +7,10 @@ ELE432-Advanced Digital Design Assignment-1
 Photo Credit to Egemen Çelik (20egemen04).
 
 --> FSM Logic in Traffic.sv has been verified by traffic_tb.sv
+
 --> For real world application, an OneSecond_timer.sv has been written and 2 submodules (OneSecond_timer.sv & Traffic.sv) has been instantiated inside the top module top_Traffic.sv
+
 --> Required files for grading has been uploaded inside to the repository.
+
 
 FSM Logic Waveform :
