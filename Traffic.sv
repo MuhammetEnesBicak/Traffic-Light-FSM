@@ -28,5 +28,66 @@ module Traffic (
             timer         <= next_timer;
         end
     end
+	
+
+    always_comb begin
+
+        next_state = current_state; 
+        next_timer = 3'b000; 
+
+        case (current_state)
+            S0: begin
+                if (!TAORB) begin
+                    next_state = S1;
+                end else begin
+                    next_state = S0;
+                end
+            end
+
+            S1: begin
+
+                if (timer < 3'd5) begin
+                    next_state = S1;
+                    next_timer = timer + 1'b1;
+                end else begin
+                    next_state = S2;
+                end
+            end
+
+            S2: begin
+                if (TAORB) begin
+                    next_state = S3;
+                end else begin
+                    next_state = S2;
+                end
+            end
+
+            S3: begin
+         
+                if (timer < 3'd5) begin
+                    next_state = S3;
+                    next_timer = timer + 1'b1;
+                end else begin
+                    
+                    next_state = S0;
+                end
+            end
+            
+            default: next_state = S0;
+        endcase
+    end
+
+
+    always_comb begin
+        // LED config : 6'b(LA_Red)(LA_Yellow)(LA_Green)_(LB_Red)(LB_Yellow)(LB_Green)
+        case (current_state)
+            S0: led = 6'b001_100; // LA Green, LB Red
+            S1: led = 6'b010_100; // LA Yellow, LB Red
+            S2: led = 6'b100_001; // LA Red, LB Green
+            S3: led = 6'b100_010; // LA Red, LB Yellow
+            default: led = 6'b001_100;
+        endcase
+    end
+
 
 endmodule
